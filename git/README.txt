@@ -1,4 +1,4 @@
-Hello world!!! TEMA qwe
+Hello world!!! TEMA
 adsasdas
 asdsadddddd
 dddddddddddddddddqwe
