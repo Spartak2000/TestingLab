@@ -1,6 +1,7 @@
 package yakutia.tests;
 
 
+import java.io.*;
 import framework.BasePage;
 import framework.BaseTest;
 import org.testng.Assert;
@@ -9,6 +10,12 @@ import yakutia.pageObjects.forms.*;
 import yakutia.pageObjects.forms.menu.PersonProfilePage;
 
 public class TestSteam extends BaseTest {
+     
+      PrintStream out = new PrintStream(System.out, true, "UTF-8");
+
+    public TestSteam() throws UnsupportedEncodingException {
+    }
+     
      
     /**
      *  Тест 1. На главной странице нажать кнопку "Войти" им ввести валидные данные, нажать крестик, перейти в регистрацию, нажать "У меня есть аккаунт",начать войти. Ожидание - сохранилась информация введенная ранаее и вход прошел успешно.
