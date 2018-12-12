@@ -1,5 +1,6 @@
 package yakutia.tests;
 
+import java.io.*;
 import framework.BasePage;
 import framework.BaseTest;
 import org.testng.Assert;
