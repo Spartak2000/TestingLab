@@ -105,4 +105,29 @@ public class TestSteam extends BaseTest {
         InformationPage informationPage = new InformationPage();
         BasePage.closeBrowser();
     }
+
+    /**
+     *  Тест 9. На главной странице нажать кнопку "Войти", ввести данные аккаунта и нажать "Войти". Ожидание - не появилось сообщение об ошибке логина или пароля.
+     */
+    @Test
+    public void validLogInTest(){
+        MainPage mainPage = new MainPage();
+        Assert.assertTrue(mainPage.valLogIn());
+        BasePage.closeBrowser();
+    }
+
+
+    /**
+     *  Тест 10. Перейти в регистрацию, нажать "У меня есть аккаунт",ввести данные, начать войти. Ожидание - вход прошел успешно.
+     */
+    @Test
+    public void checkHaveAccount(){
+
+        MainPage mainPage = new MainPage();
+        Assert.assertTrue(mainPage.checkHaveAccount());
+        BasePage.closeBrowser();
+    }
+
+
+
 }

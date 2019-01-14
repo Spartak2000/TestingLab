@@ -17,6 +17,8 @@ public class MainPage extends BasePage {
     private String locatorSecondName="//input[@name='passenger_lastname']";
     private String locatorOpen="(//span[@class='ui-button-text'])[2]";
     private String invalidData="11111111111111";
+    private String loginData="spartak2000@tut.by";
+    private String passwordData="98All13pik0011";
     private String locatorLogin="//a[contains(text(), 'Войти')]";
     private String locatorGotoAccount="//a[contains(text(), 'У меня есть аккаунт')]";
     private String locatorClose="(//button[@role='button'])[3]";
@@ -67,6 +69,20 @@ public class MainPage extends BasePage {
         return Label.isFound(locatorError);
     }
 
+    public boolean valLogIn(){
+        Button btnLogIn = new Button(By.xpath(locatorLogin));
+        btnLogIn.click();
+        Input inputEmail = new Input(By.xpath(locatorEmail));
+        inputEmail.sendKeys(loginData);
+        Input inputPassword = new Input(By.xpath(locatorPassword));
+        inputPassword.sendKeys(passwordData);
+        Button btnGo = new Button(By.xpath(locatorGo));
+        btnGo.click();
+        return !Label.isFound(locatorError);
+    }
+
+
+
     public void goToReg(){
         Button btnReg = new Button(By.xpath(locatorReg));
         btnReg.click();
@@ -85,6 +101,21 @@ public class MainPage extends BasePage {
         btnReg.click();
         Button btnHaveAccount = new Button(By.xpath(locatorGotoAccount));
         btnHaveAccount.click();
+        Button btnGo = new Button(By.xpath(locatorGo));
+        btnGo.click();
+        return Label.isFound(locatorCabinet);
+    }
+
+
+    public boolean checkHaveAccount(){
+        Button btnReg = new Button(By.xpath(locatorRegistration));
+        btnReg.click();
+        Button btnHaveAccount = new Button(By.xpath(locatorGotoAccount));
+        btnHaveAccount.click();
+        Input inputEmail = new Input(By.xpath(locatorEmail));
+        inputEmail.sendKeys(configReader.getProperties("email"));
+        Input inputPassword = new Input(By.xpath(locatorPassword));
+        inputPassword.sendKeys(configReader.getProperties("password"));
         Button btnGo = new Button(By.xpath(locatorGo));
         btnGo.click();
         return Label.isFound(locatorCabinet);
