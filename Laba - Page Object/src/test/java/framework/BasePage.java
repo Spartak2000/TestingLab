@@ -13,5 +13,6 @@ public abstract class BasePage extends BaseEntity {
         Assert.assertTrue(uniqueElement.isEnabled());
     }
 
+
 }
 

@@ -7,20 +7,18 @@ import org.testng.Assert;
 
 public abstract class BasePage extends BaseEntity {
     protected By locatorPage;
-    private static String clearPathChrome = "./src/test/resources/drivers/chromedriver";
-    private static String clearPathFirefox = "./src/test/resources/drivers/geckodriver";
-
 
     protected void isOpen(By locator) {
         Label uniqueElement = new Label(locator);
         Assert.assertTrue(uniqueElement.isEnabled());
 
     }
-    public static void closeBrowser(){
+
+    public static void closeBrowser() {
         driver.quit();
-        BrowserFactory.pathChrome=clearPathChrome;
-        BrowserFactory.pathFirefox=clearPathFirefox;
-        driver=null;
+        BrowserFactory.pathChrome = BrowserFactory.pathChrome.substring(0, BrowserFactory.pathChrome.length() - 4);
+        BrowserFactory.pathFirefox = BrowserFactory.pathFirefox.substring(0, BrowserFactory.pathFirefox.length() - 4);
+        driver = null;
     }
 
 }
